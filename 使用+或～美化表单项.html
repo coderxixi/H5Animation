@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     ul li{
+      list-style: none;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
+    input:checked + label {
+    
+		
+	}
+  label {
+    display: block;
+		margin-right: 5px;
+		padding: 2px;
+		border: 1px solid red;
+		border-radius: 100%;
+		width: 20px;
+		height: 20px;
+		background-clip: content-box;
+		cursor: pointer;
+   
+		transition: all 300ms;
+	
+		}
+    /* label:hover{
+      border-color: red;
+			background-color: red;
+			box-shadow: 0 0 7px red;
+    } */
+    span {
+		font-size: 16px;
+	} 
+  #idl .active{
+    display: block;
+		margin-right: 5px;
+		padding: 2px;
+		border: 1px solid red;
+		border-radius: 100%;
+		width: 20px;
+		height: 20px;
+		background-clip: content-box;
+		cursor: pointer;
+   
+		transition: all 300ms;
+  }
+  #idl >.checked{
+    background-color: red;
+  }
+  </style>
+</head>
+<body>
+  <div class="brue flex-ct-x" data-title="使用+或～美化选项表单">
+    <ul class="one">
+      <li>
+        <input type="radio" id="fed-engineer" name="radioName" hidden>
+        <label for="fed-engineer"></label>
+        <span>前端工程师</span>
+      </li>
+      <li>
+        <input type="radio" id="fed-enginee" name="radioName" hidden>
+        <label for="fed-enginee"></label>
+        <span>CSS工程师</span>
+      </li>
+    </ul>
+    <ul class="two" id="idls">
+      <li id="idl" >
+        <label for="fed-engineer1" class="active"></label>
+        
+        <span>前端工程师34</span>
+      </li>
+      <li id="idl">
+        <label for="fed-enginee2" class="active" ></label>
+        <span>CSS工程师</span>
+      </li>
+    </ul>
+   
+   
+  </div>
+  <script>
+    let liId=document.getElementById('idls');
+    
+    let active=document.getElementsByClassName('active')[0]
+    liId.onclick=function(e){
+      for(let i=0;i<active.length;i++){
+        if(['<span>前端工程师34</span>','<span>CSS工程师</span>'].includes(String(e.target))){
+          if(!active[0].classList.contains('checked')){
+        active[0].classList.add('checked')
+      }else{
+        active[0].classList.remove('checked')
+      }
+      }
+        }
+    
+            console.log('e',e.target,['<span>前端工程师34</span>','<span>CSS工程师</span>'].includes(e.target));
+     
+   
+      console.log('e',);
+      
+    }
+  </script>
+</body>
+</html>

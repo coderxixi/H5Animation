@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="5.css">
+</head>
+<body>
+  <div class="buttons">
+    <a class="button" href="#">Button
+      <!-- <span class="overlay"></span> -->
+    </a>
+   
+    <a class="button" href="button two" href="#">Button
+      <!-- <span class="overlay"></span> -->
+    </a>
+  </div>
+ <script>
+let buttoms=document.querySelectorAll('.button');
+console.log(buttoms);
+for(let i=0;i<buttoms.length;i++){
+   buttoms[i].addEventListener('click',function(e){
+     e.preventDefault()
+     let overlay=document.createElement('span');
+     overlay.classList.add("overlay");
+     let x=e.clientX-e.target.offsetLeft;
+     let y=e.clientY-e.target.offsetTop;
+     overlay.style.left=x+"px"
+     overlay.style.top=y+"px"
+     e.target.appendChild(overlay);
+     setTimeout(()=>{
+      overlay.remove()
+     },500)
+     console.log(overlay);
+   })
+}
+ </script>
+</body>
+</html>

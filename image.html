@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script>
+
+let ua = navigator.userAgent
+let isIOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+  console.log("isIOS",isIOS,dayjs(dayjs("2022/06/28T10:35:13.000+0000").format("YYYY-MM-DD HH:mm:ss")).format() );
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: skyblue;
+  z-index: -1;
+  transition: all 0.25s ease-in;
+}
+input{
+      display: none;
+}
+label{
+position: relative;
+width: 200px;
+height: 100px;
+border-radius: 100px;
+border: 5px solid #72cce3;
+background-color: #96dcee;
+transition: all .35s ease-in;
+}
+label::before{
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: 5px solid #f5eb71;
+  background-color: #fffaa8;
+  transition: all .35s ease-in;
+}
+label::after{
+  content: '';
+  position: absolute;
+  top: 23px;
+  left: 143px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+  box-shadow: -13px 0 0 2px #e8e8ea,-24px 14px 0 -2px #e8e8ea;
+  transition: all .25s ease-in;
+  opacity: 0;
+  animation:swich-revers .35s forwards;
+}
+label span{
+  position: relative;
+  display: block;
+  top: 45px;
+  left: 135px;
+  width: 10px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: all 0.15s ease-in;
+}
+label span::before,
+label span::after{
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: all 0.15s ease-in;
+}
+label span::before{
+  top: -5px;
+  left: -20px;
+
+}
+label span::after{
+  top: 5px;
+  left: -10px;
+}
+input:checked ~ .background{
+  background-color: #808fc7;
+}
+input:checked + label{
+  border-color:#5d6baa;
+  background-color: #6b7abb;
+}
+input:checked + label::before{
+  border-color:#e8e8ea ;
+  background-color: #fff;
+  animation: switch .35s forwards;
+}
+input:checked + label::after{
+  opacity: 1;
+  transition-delay: .25s;
+}
+input:checked + label span{
+  width: 5px;
+  left: 60px;
+}
+input:checked + label span::before{
+  width: 5px;
+  height: 5px;
+  top: -25px;
+}
+input:checked + label span::after{
+  width: 5px;
+  height: 5px;
+  top: 20px;
+  left: -30px;
+}
+@keyframes switch{
+  0%{
+    left: 4px;
+  }60%{
+      left: 4px;
+      width: 112px;
+  }100%{
+    left: 104px;
+
+  }
+}
+@keyframes switch-reverse{
+  0%{
+    left:104px
+  }
+  60%{
+    left: 72px;
+    width: 112px;
+  }
+  100%{
+  left: 14px;
+  }
+}

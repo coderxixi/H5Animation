@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>删格布局</title>
+  <style>
+    article {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      background-clip: content-box;
+      border: 1px solid red;
+      box-sizing: border-box;
+      background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <div>11</div>
+    <div>21</div>
+    <div>31</div>
+    <div>41</div>
+    <div>51</div>
+    <div>61</div>
+    <div>71</div>
+    <div>81</div>
+    <div>91</div>
+  </article>
+</body>
+</html>

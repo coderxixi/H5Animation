@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body,html{
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
+</head>
+<body>
+  <div>dsfafasdf</div>
+  <script src="https://unpkg.com/l-watermark@2.0.0/dist/l-watermark.umd.js"></script>
+  <script>
+    window.onload = function () {
+      WaterMark.page({
+        containerEl: document.body,
+        text: "刘嘻嘻",
+        color: "rgba(0, 0, 0, 0.1)",
+        fontSize: 14
+      })
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body,html{
+  font-family: "Noto Sans SC sans-serif";
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  background: linear-gradient(225deg,rgba(255,154,158,1) 0%,rgba(250,208,196,1) 99%),rgba(250,208,196,1) 100%;
+}
+li{
+  list-style: none;
+}
+.calendar{
+   width: 520px;
+   padding: 32px;
+   border-radius: 24px;
+   background-color: #fff;
+   box-shadow: 2px 12px 24px rgba(0,0,0,0.12);
+
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+button{
+  width: 42px;
+  height: 28px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  color: #c9c9c9;
+  background-color: #fff;
+  border: 1px solid currentColor;
+  font-size: 18px;
+  cursor: pointer;
+}
+.button-nav {
+  display: flex;
+}
+.button-nav button:first-child{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+.button-nav button:last-child{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+
+}
+button:active:not(:disabled){
+    background-color: rgba(0,0,0,0.06);
+}
+button:disabled{
+  background-color: rgba(0,0,0,0.08);
+  cursor: not-allowed;
+}
+button.today{
+  width: 64px;
+  font-size: 12px;
+}
+.week{
+  margin-top: 20px;
+  display: flex;
+}
+.week li{
+  flex: 1;
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 14px;
+  
+}

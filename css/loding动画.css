@@ -1,0 +1,66 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2f3542;
+}
+ 
+.loader{
+  width: 100px;
+  position: relative;
+  /* border: 1px solid red; */
+}
+.loader div{
+  width: 30px;
+  height: 30px;
+  background-color: #0abde3;
+  position: absolute;
+  left: calc(var(--i) * 30px);
+  border: 1px solid ;
+  animation:  move 2s linear infinite ;
+  animation-delay: calc(var(--i) * -400ms);
+}
+@keyframes move{
+  0%{
+    left: 150px;
+    top: 0;
+  }
+  80%{
+    left: 0;
+    top: 0;
+  }
+  85%{
+    left: 0;
+    top: -30px;
+    width: 30px;
+    height: 30px;
+
+  }
+  88%{
+    left: 10px;
+   top: -30px;
+  }
+  90%{
+    width: 60px;
+    height: 25px;
+  }
+  95%{
+    left: 150px;
+    top: -30px;
+    width: 30px;
+    height: 30px;
+  }
+  98%{
+    left: 150px;
+    top: -30px;
+  }
+  100%{
+    left: 150px;
+    top: 0;
+  }
+}
