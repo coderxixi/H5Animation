@@ -1,0 +1,33 @@
+html{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+#list{
+  display: flex;
+  
+}
+#list img{
+  width: 200px;
+}
+/* 图片预览样式 */
+.modal {
+  touch-action: none;
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.modal > img {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  transform: translateZ(0);
+}
