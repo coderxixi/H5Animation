@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./index.js"></script>
+  <link rel="stylesheet" href="./index.css">
+  <title>canvas签名</title>
+  <style>
+    .box{
+      display: flex;
+      justify-content: center;
+      border: 1px solid #eee;
+    }
+    #clear{
+     width: 250px;
+     margin: 10px auto;
+     padding: 20px;
+     text-align: center;
+     border: 1px solid #eee;
+     border-radius: 14px;
+    }
+    #bao{
+      width: 250px;
+     margin: 10px auto;
+     padding: 20px;
+     text-align: center;
+     border: 1px solid #eee;
+     border-radius: 14px;
+    }
+  </style>
+ 
+</head>
+<body>
+  <div class="box">
+    <canvas  id="canvas" width="600">
+      当前浏览器不支持canvas元素，请升级或更换浏览器！
+    </canvas>
+   
+  </div>
+  <div id="clear"> 清空画布</div>
+  <div id="bao"> 保存图片</div>
+  
+
+    <script>
+      const canvas=document.getElementById('canvas');
+      const clear=document.getElementById('clear');
+      const ctx=canvas.getContext("2d");
+      const bao=document.getElementById('bao')
+      canvas.addEventListener('mouseenter',(e)=>{
+        canvas.addEventListener('mousedown', (e) => {
+            ctx.beginPath()
+            ctx.moveTo(e.offsetX, e.offsetY)
+            canvas.addEventListener('mousemove', draw)
+        })
+        canvas.addEventListener('mouseup', () => {
+            canvas.removeEventListener('mousemove', draw)
+        })
+      })
+      function draw(e) {
+        ctx.lineTo(e.offsetX, e.offsetY)
+        ctx.stroke()
+    }
+    clear.addEventListener('click', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    })
+    bao.addEventListener('click',()=>{
+      let url = canvas.toDataURL("image/png"); 
+      
+    })
+    </script>
+
+</body>
+</html>
