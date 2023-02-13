@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3892167 */
+  src: url('//at.alicdn.com/t/c/font_3892167_ph9fl3e2i3.woff2?t=1676250893477') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3892167_ph9fl3e2i3.woff?t=1676250893477') format('woff'),
+       url('//at.alicdn.com/t/c/font_3892167_ph9fl3e2i3.ttf?t=1676250893477') format('truetype');
+}
+
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jiahao1:before {
+  content: "\e616";
+}
+
+.icon-gouwuche:before {
+  content: "\e899";
+}
+
+.icon-jiahao:before {
+  content: "\e86a";
+}
+
+.icon-anniu:before {
+  content: "\e721";
+}
+
+.btn{
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  position:absolute;
+  right: 20px;
+  top: 50px;
+
+}
+
+.gouwuche{
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+}
+.gouwuche .icon-gouwuche{
+  font-size: 35px;
+}
+
+.jiahao{
+  position: relative;
+ /* display: flex;
+ justify-content: center;
+ align-items: center; */
+  /* border: 1px solid red; */
+  border-radius: 50%;
+ animation:moveY .8s cubic-bezier(0.5, -0.5, 1, 1);
+ left:var(--left);
+ top: var(--top);
+}
+.jiahao .icon-jiahao1{
+  position: absolute;
+  animation: moveX .8s linear;
+}
+
+@keyframes moveY{
+  to{
+    transform: translateY(var(--y));
+  }
+}
+
+@keyframes moveX{
+  to{
+    transform: translateX(var(--x));
+  }
+}
