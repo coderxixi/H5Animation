@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="box" id="tab_wrap">
+    <ul class="tab_options">
+      <li data-index="0" class="item active">tab1</li>
+      <li data-index="1" class="item">tab2</li>
+      <li data-index="2" class="item">tab3</li>
+      <li data-index="3" class="item">tab4</li>
+    </ul>
+    <div class="tab_content">
+      <div class="item_box active">tab box 1</div>
+      <div class="item_box">tab box 2</div>
+      <div class="item_box">tab box 3</div>
+      <div class="item_box">tab box 4</div>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+  <script>
+    var tab = new Tab(document.querySelector('#tab_wrap'));
+
+document.querySelector('.next').addEventListener('click', function() {
+  tab.next();
+  console.log(tab.getIndex());
+}, false);
+
+document.querySelector('.prev').addEventListener('click', function() {
+  tab.pre();
+  console.log(tab.getIndex());
+}, false)
+  </script>
+</body>
+</html>
