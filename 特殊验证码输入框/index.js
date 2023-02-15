@@ -65,4 +65,7 @@ input.addEventListener('input',(e)=>{
             items[index].classList.add('active');
         }
     })
+
+    console.log('temp_val',temp_val);
 });
+
