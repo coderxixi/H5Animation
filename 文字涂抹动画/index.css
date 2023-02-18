@@ -1,0 +1,28 @@
+.container{
+  color: #fff;
+  font-size: 80px;
+  text-transform: uppercase; 
+  font-weight: bold; 
+  position: relative;
+}
+.container::before{
+  content: ' hello xixi';
+  position: absolute;
+ left: 0;
+ top: 0;
+  color: #eeea06;
+  width: 60px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right:5px solid #eeea06 ;
+  animation: move 5s linear infinite ;
+}
+
+@keyframes move{
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 100%;
+  }
+}
