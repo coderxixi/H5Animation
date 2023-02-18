@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+  <style>
+    body{
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div{
+      position: relative;
+      width: 220px;
+      height: 64px;
+      line-height: 64px;
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      background-color: #55557f;
+      cursor: pointer;
+      border-radius: 10px;
+
+    }
+
+    div::after,div::before{
+      content: '';
+      position: absolute;
+      border: 2px solid #55557f;
+      /* top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px; */
+      inset: -10px;
+      border-radius: 10px;
+      animation: clippath 3s infinite linear;
+
+    }
+    div::after{
+      animation-delay: -1.5s;
+    }
+    div:hover{
+      filter: brightness(1.5);
+    }
+
+    @keyframes clippath{
+      0%,100%{
+        clip-path: inset(0 0 98% 0);
+      }
+      25%{
+        clip-path: inset(0 98% 0  0);
+      }
+      50%{
+        clip-path: inset( 98% 0  0  0);
+      }
+      75%{
+        clip-path: inset(  0  0  0 98%);
+      }
+    }
+  </style>
+</head>
+<body>
+   <div>嘻嘻code</div>
+</body>
+</html>
