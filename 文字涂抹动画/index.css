@@ -16,6 +16,7 @@
   overflow: hidden;
   border-right:5px solid #eeea06 ;
   animation: move 5s linear infinite ;
+  filter: drop-shadow(0 0 50px #eeea06);
 }
 
 @keyframes move{
