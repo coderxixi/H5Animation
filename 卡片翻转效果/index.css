@@ -1,0 +1,25 @@
+#s_img{
+  width: 400px;
+  height: 600px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+#s_img img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 20px;
+  box-shadow: 0 015px rgb(0, 0, 0);
+  backface-visibility: hidden;
+  transition: all 2s;
+}
+#a2{
+  transform: rotateY(180deg);
+}
+body:hover #a2{
+ transform: rotateY(0deg);
+}
+body:hover #a1{
+  transform: rotateY(-180deg);
+ }
