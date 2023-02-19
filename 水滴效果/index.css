@@ -1,0 +1,51 @@
+.water{
+  position: relative;
+   width: 417px;
+   height: 417px;
+   border-radius:30% 70% 68% 32% / 30% 54% 46% 70%;
+   box-shadow: inset 10px 20px 30px rgba(0,0,0,0.5),
+               10px 10px 20px rgba(0,0,0,0.3),
+               15px 15px 30px rgba(0,0,0,0.05),
+               inset -10px -10px 15px rgba(255,255,255,0.8)
+   ;
+   animation: move 3s linear infinite alternate;
+}
+.water::after{
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 100px;
+  left: 40%;
+  background-color:rgba(255,255,255,0.8) ;
+  border-radius: 50%;
+  border-radius:21% 79% 44% 56% / 16% 54% 46% 84% ;
+ 
+}
+
+.water::before{
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 100px;
+  right: 40%;
+  background-color:rgba(255,255,255,0.8) ;
+  border-radius: 50%;
+  border-radius:46% 54% 44% 56% / 71% 17% 83% 29% ;
+ 
+}
+@keyframes move{
+  25%{
+    border-radius:70% 30% 44% 56% / 71% 17% 83% 29%  ;
+
+  }
+  50%{
+    border-radius:70% 30% 44% 56% / 37% 17% 83% 63%  ;
+    
+  }
+  100%{
+    border-radius:70% 30% 44% 56% / 37% 53% 47% 63%   ;
+    
+  }
+}
