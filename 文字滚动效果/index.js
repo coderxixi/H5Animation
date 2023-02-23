@@ -21,13 +21,13 @@ function moveNext(){
       current++;
     let to=current*itmeHeigh; //下一项的滚动高度
 
-    let totalDuration=300 //变化的总时间
-    let duration=20;//变化的间隔时间
+    let totalDuration=600 //变化的总时间
+    let duration=10;//变化的间隔时间
     let times=totalDuration/duration;// 变化的次数
-  let dis=(to-from)/times; // 每次变化的偏移量
+    let dis=(to-from)/times; // 每次变化的偏移量
    let timesId= setInterval(()=>{
      from+=dis;
-    if(from>=to){
+    if(from>to){
       clearInterval(timesId);
       if(current>=boxList.children.length-1){
         from=0;
