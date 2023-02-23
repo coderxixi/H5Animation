@@ -1,0 +1,38 @@
+.box{
+ display: flex;
+ background: skyblue;
+ border-radius: 12px;
+}
+.box .left{
+  width: 70px;
+  text-align: center;
+ height: 40px;
+ line-height: 40px;
+ position: relative;
+ 
+
+}
+.box .left::after{
+  content: '';
+  display: inline-block;
+  position:absolute;
+  width: 2px;
+  height: 20px;
+  background-color: red;
+  top: 50%;
+  transform: translateY(-50%);
+   right: 10px;
+
+}
+.box .right ul{
+  height: 40px;
+  list-style: none;
+  overflow: hidden;
+}
+.box .right ul li{
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  overflow: hidden;
+}
