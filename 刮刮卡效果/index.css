@@ -1,0 +1,23 @@
+.box{
+  /* position: relative; */
+}
+
+
+
+#ggk{
+  width: 600px;
+  height: 400px;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 400px;
+  overflow: hidden;
+   position: absolute;
+   left: 0;
+   top: 0;
+}
+#can{
+  position: absolute;
+  left: 0;
+   top: 0;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/comm.css">
+<link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="box">
+    <div id="ggk"> 谢谢惠顾</div>
+    <canvas id="can" width="600" height="400"></canvas>
+  </div>
+ 
+   <script>
+     let c=document.getElementById('can');
+     let ctx=c.getContext('2d');
+   let img=new Image();
+   img.src="../image/bolt.jpeg";
+   img.onload=function(){
+    ctx.drawImage(img, 0, 0, 600,400);
+    
+   }
+
+   let isDraw=false;
+
+   c.onmousedown=function(){
+      isDraw=true
+   }
+   c.onmouseup=function(){
+      isDraw=false
+   }
+   c.onmousemove=function(e){
+   
+    if(isDraw){
+      let x=e.pageX;
+      let y=e.pageY;
+      ctx.globalCompositeOperation='destination-out';
+     
+      ctx.arc(x,y,20,0,2*Math.PI);
+      ctx.fill()
+      
+    }
+   }
+
+
+   let random=Math.random();
+   if(random<0.8){
+    let ggkDiv=document.querySelector('#ggk');
+    ggkDiv.innerHTML='恭喜您获得iphone14 pro 大奖'
+   }
+   </script>
+</body>
+</html>
