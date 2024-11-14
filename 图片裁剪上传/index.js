@@ -14,17 +14,33 @@ inpFile.onchange=(e)=>{
   }
   reader.readAsDataURL(file)
 }
+let cutInfo={
+  x:500,
+  y:500,
+  cutWidth:300,
+  cutHeight:300,
+  width:100,
+  height:100
+ }
+new cropImg({
+  target: 'box',
+  callback({left,top,width,height,container_height,container_width,}) {
+
+ cutInfo={
+  x:left,
+  y:top,
+  cutWidth:container_width,
+  cutHeight:container_height,
+  width:width,
+  height:height
+}
+   console.log(left,top,width,height,container_height,container_width);
+  },
+});
 
 btn.onclick=function(){
   //拿到裁剪后的file对象
-  const cutInfo={
-   x:500,
-   y:500,
-   cutWidth:300,
-   cutHeight:300,
-   width:100,
-   height:100
-  }
+ 
   const canvas=document.createElement('canvas');
   canvas.width=cutInfo.width;
   canvas.height=cutInfo.height;
@@ -42,22 +58,15 @@ btn.onclick=function(){
 
 }
 
-//裁切逻辑
-function cropImg(options) {
-  this.target = document.getElementById(options.target) || document;
-  this.width = 0;
-  this.height = 0;
-  this.container_width = 0;
-  this.container_height = 0;
-  this.mouse_index = 0;
-  this.callback = options.callback || function () {};
-  this.fun_list = []; //所有绑定的事件存储起来,插件销毁时解绑
-  this.init();
-}
+
 
 uplod.onclick=function(){
   inpFile.click()
 }
+
+
+
+
 
 
 

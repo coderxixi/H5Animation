@@ -7,6 +7,59 @@
   <title>Document</title>
   <link rel="stylesheet" href="../css/comm.css">
   <link rel="stylesheet" href="./index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .top {
+      margin: 20px 0;
+    }
+    .generate {
+      color: #005aa0;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    .original {
+      width: 600px;
+      height: 500px;
+      border: 1px solid #eee;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .production {
+      margin: 20px;
+      text-align: center;
+    }
+    .box {
+      float: left;
+      position: relative;
+      overflow: hidden;
+      border: 1px dashed #999;
+    }
+    .mask {
+      position: absolute;
+      border: 1px dashed #eee;
+      background: rgba(112, 46, 36, 0.6);
+      left: 5px;
+      top: 5px;
+    }
+    .symbol {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      bottom: 0;
+      right: 0px;
+      background-color: #0b2;
+      cursor: crosshair;
+    }
+  </style>
 </head>
 <body>
   <!-- 裁剪框 -->
@@ -14,7 +67,10 @@
   
 
    <div class="box">
-    <img class="preview"  alt="" />
+    <div id="box">
+      <img class="preview"  alt="" />
+    </div>
+  
      <div class="uplod">
        <!-- <span>上传图片</span>  -->
       <input type="file" hidden/>
@@ -22,6 +78,8 @@
     
     <button class="btn">生成截图后的File对象</button>
    </div>
+ 
+   <script src="./cropImg.js"></script>
   <script src="./index.js"></script>
 </body>
 </html>

@@ -47,6 +47,9 @@
       const canvas=document.getElementById('canvas');
       const clear=document.getElementById('clear');
       const ctx=canvas.getContext("2d");
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
+      ctx.lineWidth = 50
       const bao=document.getElementById('bao')
       canvas.addEventListener('mouseenter',(e)=>{
         canvas.addEventListener('mousedown', (e) => {
