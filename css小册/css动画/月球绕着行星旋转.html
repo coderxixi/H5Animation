@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      min-height: 100vh;
+      font-family: "Exo", "Bungee Shade", cursive, Arial, sans-serif;
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .orbit {
+      --radius: 30vmin;
+      display: grid;
+      place-content: center;
+      position: relative;
+      width: calc(var(--radius) * 2);
+      aspect-ratio: 1;
+      border: 1px solid red;
+      border-radius: 50%;
+
+      >* {
+        grid-area: 1/1/-1/-1;
+      }
+    }
+
+    .moon {
+      transform: rotate(0turn) translateX(var(--radius)) rotate(1turn);
+      animation: spin 4s infinite linear;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(1turn) translateX(var(--radius)) rotate(1turn);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="orbit">
+    <div class="plante">🎅</div>
+    <div class="moon">🪆</div>
+  </div>
+</body>
+</html>
