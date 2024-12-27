@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圆形菜单</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      min-height: 100vh;
+      font-family: "Exo", "Bungee Shade", cursive, Arial, sans-serif;
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav {
+      --button-size: 20vmin;
+      --offset-factor: 0;
+      --rotation-offset: 180deg;
+      --transition-duration: .3s;
+      --transition-delay: .05s;
+      --transition-easing: ease-in-out;
+
+      position: relative;
+
+      display: inline-flex;
+      width: calc(var(--button-size) * 3);
+      height: calc(var(--button-size) * 3);
+
+      font-size: calc(var(--button-size) / 4);
+      border-radius: 50%;
+      background-image: radial-gradient(closest-side, #e6e6e6 100%, transparent);
+      background-position: 50% 50%;
+      background-size: 0 0;
+      background-repeat: no-repeat;
+
+      transition: background-size var(--transition-duration) var(--transition-easing);
+      transition-delay: calc(var(--transition-delay) * var(--menu-items));
+
+      &[aria-expanded="true"] {
+        --offset-factor: 1;
+        background-size: 100% 100%;
+        transition-delay: 0s;
+      }
+    }
+
+    button {
+      z-index: 2;
+      position: relative;
+
+      width: var(--button-size);
+      height: var(--button-size);
+      margin: auto;
+
+      font-size: 2em;
+      line-height: 1em;
+      color: #e6e6e6;
+      border: 2px solid;
+      border-radius: inherit;
+      background: #161616;
+      box-shadow: 0 0 0 hsla(0, 0, 0, 0);
+
+      transition-property: color, border-color, background-color, box-shadow;
+      transition-duration: var(--transition-duration);
+      transition-timing-function: var(--transition-easing);
+
+      &:hover,
+      &:focus {
+        border-color: #00a39b;
+        outline: none;
+      }
+
+      [aria-expanded="true"] & {
+        background-color: #00a39b;
+        color: #e6e6e6;
+        box-shadow: 0 0 2rem hsla(0, 0, 0, .5);
+      }
+    }
+
+    ul {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      width: var(--button-size);
+      height: var(--button-size);
+      margin: auto;
+
+      list-style: none;
+    }
+
+    li {
+      --index: calc(var(--i) - 1);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      width: inherit;
+      height: inherit;
+      margin: auto;
+
+      font-size: 2em;
+
+      transition: transform var(--transition-duration) var(--transition-easing);
+      transition-delay: calc(var(--transition-delay) * var(--index));
+      transform:
+        rotate(calc(var(--rotation-offset) + 360deg / var(--menu-items) * var(--index))) translateY(calc(100% * var(--offset-factor))) rotate(calc(var(--rotation-offset) + -360deg / var(--menu-items) * var(--index))) scale(calc(1 - (1 - var(--offset-factor)) * .5));
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+
+
+
+
+  <nav aria-expanded="false" style="--menu-items: 7;">
+    <button class="flex-center" aria-label="Menu toggle" aria-controls="menu">🍔</button>
+    <ul id="menu">
+      <li class="flex-center" style="--i: 1;"><a href="#">🍞</a></li>
+      <li class="flex-center" style="--i: 2;"><a href="#">🌶</a></li>
+      <li class="flex-center" style="--i: 3;"><a href="#">🥓</a></li>
+      <li class="flex-center" style="--i: 4;"><a href="#">🍅</a></li>
+      <li class="flex-center" style="--i: 5;"><a href="#">🧀</a></li>
+      <li class="flex-center" style="--i: 6;"><a href="#">🥩</a></li>
+      <li class="flex-center" style="--i: 7;"><a href="#">🥗</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    window.addEventListener('click', function (e) {
+      var nav = document.querySelector('nav');
+
+      if (!nav || !e.target.closest('button')) { return; }
+
+      nav.setAttribute('aria-expanded', (nav.getAttribute('aria-expanded') !== 'true').toString())
+    }, false);
+  </script>
+</body>
+</html>
