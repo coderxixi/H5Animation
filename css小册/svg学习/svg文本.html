@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+ <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+
+  }
+ </style>
+<body>
+  <svg class="svgwave" xmlns="http://www.w3.org/2000/svg" wifth="200" height="130">
+    <defs>
+      <path id="wavepath"
+        d="M0,.5c30.0978,0,30.0978,20,60.1956,20S90.2948.5,120.394.5s30.1,20,60.2,20c30.1015,0,30.1015-20,60.203-20s30.1014,20,60.2029,20"
+        fill="none" stroke="#fefefe" stroke-width="1" stroke-dasharray="8" stroke-dashoffset="4" stroke-miterlimit="6" />
+    </defs>
+      <text text-anchor="middle" fill="#e13137">
+        <textPath class="my-text" href="#wavepath" startOffset="10%">My text is on a wavy path!</textPath>
+      </text>
+  </svg>
+  
+</body>
+</html>

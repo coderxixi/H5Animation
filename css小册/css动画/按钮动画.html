@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+     body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: "Exo", "Bungee Shade", cursive, Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+    place-content: center;
+    padding: 1rem;
+  }
+@layer animation {
+  @keyframes rotating {
+    0% {
+      --r: 0deg;
+    }
+    100% {
+      --r: 360deg;
+    }
+  }
+  @keyframes x {
+    0% {
+      --x: 80px;
+    }
+    32.82275711% {
+      --x: 520px;
+    }
+    50% {
+      --x: 520px;
+    }
+    82.82275711% {
+      --x: 80px;
+    }
+    100% {
+      --x: 80px;
+    }
+  }
+
+  @keyframes rotating2 {
+    0% {
+      --r: 0deg;
+    }
+    32.82275711% {
+      --r: 0deg;
+    }
+    50% {
+      --r: 180deg;
+    }
+    82.82275711% {
+      --r: 180deg;
+    }
+    100% {
+      --r: 360deg;
+    }
+  }
+  
+  @keyframes rotating3 {
+    0% {
+      --r: 0deg;
+      --color1: #e71212;
+      --color2: #03a9f4;
+    }
+    32.82275711% {
+      --r: 0deg;
+      --color1: #aa0808;
+      --color2: #0888c1;
+    }
+    50% {
+      --r: 180deg;
+      --color1: #d14747;
+      --color2: #2b91be;
+    }
+    82.82275711% {
+      --r: 180deg;
+      --color1: #e02121;
+      --color1: #176283;
+    }
+    100% {
+      --r: 360deg;
+      --color1: #ee0707;
+      --color1: #2ea9de;
+    }
+  }
+
+  button {
+    animation: rotating 3s linear infinite;
+    &:hover {
+      animation-play-state: paused !important;
+    }
+  }
+}
+@layer demo {
+  @property --r {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @property --x {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  @property --color1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #09f;
+  }
+
+  @property --color2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #f90;
+  }
+
+  button {
+    display: inline-flex;
+    border: 6px solid transparent;
+    padding: 0.5em 1.5em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999rem;
+    font-size: 1.5rem;
+    font-family: inherit;
+    background: linear-gradient(to right, #111, #111),
+      conic-gradient(from var(--r), #222 0%, #eee 10%, #222 20%);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    color: #fff;
+    cursor: pointer;
+    transition: scale 0.2s ease-in-out;
+
+    :is(&:hover, &:focus) {
+      scale: 1.05;
+    }
+
+    
+  }
+}
+
+  </style>
+</head>
+<body>
+  <button>Hove Me!</button>
+</body>
+</html>
