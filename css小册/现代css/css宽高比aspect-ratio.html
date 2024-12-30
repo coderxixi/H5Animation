@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css宽高比aspect-ratio</title>
+  <style>
+    @layer reset, base, layout, card;
+
+ 
+
+@layer card {
+  .card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 0.2em;
+    overflow: hidden;
+    padding-bottom: 0.75rem;
+    inline-size: 300px;
+
+    > *:not(figure) {
+      padding-inline: 0.75rem;
+      /* aspect-ratio: 2/1; */
+    }
+
+    & h3 {
+      font-size: 1.25rem;
+      margin-block: 10px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    & p {
+      font-size: 65%;
+      color: #666;
+    }
+  }
+}
+
+
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer base {
+  body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: "Exo", "Bungee Shade", cursive, Arial, sans-serif;
+    background-color: #557;
+    color: #fff;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    place-content: center;
+  }
+  
+}
+  </style>
+</head>
+<body>
+     <h1>css宽高比aspect-ratio</h1>
+
+
+      <div class="card">
+        <figure>
+          <img src="https://picsum.photos/800/600?random=1" alt="">
+        </figure>
+        <h3>Muffins Recipe</h3>
+        <p>Servings: 3</p>
+      </div>
+</body>
+</html>
