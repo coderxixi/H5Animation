@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css渐变边框</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: skyblue;
+    }
+
+    .card {
+      --start-deg: 30deg;
+      --border-width: 1em;
+      --x: .5;
+      --y: .5;
+      --conic-gradient-color: #fd0e4c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c;
+      width: 30vw;
+      height: 20vw;
+      border: var(--border-width) solid transparent;
+    border-image-slice: 30;
+    border-image-source: conic-gradient(
+      from var(--start-deg) at calc(var(--x) * 100%) calc(var(--y) * 100%),
+      var(--conic-gradient-color)
+    );
+
+    }
+  </style>
+</head>
+<body>
+  <div class="card"></div>
+</body>
+</html>
