@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>金属按钮</title>
+
+  <style>
+    @layer reset, base, demo, gradient;
+
+
+
+    @layer demo {
+      @property --start-deg {
+        syntax: "<angle>";
+        initial-value: 30deg;
+        inherits: false;
+      }
+
+      @keyframes startDeg {
+        to {
+          --start-deg: calc(360deg * 3);
+        }
+      }
+
+      .box {
+        --d: 30em;
+        --bw: 2.25em;
+        --pw: 2.3125em;
+        --bd: calc(var(--d) - 2 * (var(--bw) + var(--pw) + 0.15em));
+        --ad: calc(var(--bd) - 0.125em);
+        --alpha: 65%;
+        --start-deg: 0deg;
+
+        padding: var(--pw);
+        width: var(--d);
+        aspect-ratio: 1;
+        z-index: -1;
+        border-radius: 50%;
+        position: relative;
+        border: solid var(--bw) transparent;
+        box-shadow: inset 0 0 0 3px #12171f,
+          inset 0 0 1px 8px color-mix(in oklch, #1d1f2b, transparent 46%);
+        background:
+          linear-gradient(#1a2238, #373944) content-box,
+          radial-gradient(color-mix(in oklch, #12171f, transparent 100%) 70%, #12171f 70%) padding-box,
+          linear-gradient(#414859, #272d3b) padding-box,
+          radial-gradient(color-mix(in oklch, #808384, transparent 100%) 70%, color-mix(in oklch, #808384, transparent 68%) 71%) 0 -1px border-box,
+          linear-gradient(#10111b, #292c3d) border-box;
+
+        &::before,
+        &::after {
+          z-index: -1;
+          content: "";
+          aspect-ratio: 1;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border-radius: 50%;
+          translate: -50% -50%;
+        }
+
+        &::before {
+          width: var(--bd);
+          box-shadow: 0 0 0 4px color-mix(in oklch, #02050a, transparent 30%);
+          background: linear-gradient(#c8cbd4, #383c44);
+        }
+
+        &::after {
+          width: var(--ad);
+          box-shadow: 0 2px 2px -1px #3a3d4b, 0 -2px 2px -1px #f5f4fd;
+          background: conic-gradient(from var(--start-deg),
+              color-mix(in oklch, #d5d8e1, transparent 65%),
+              color-mix(in oklch, #666c80, transparent 65%) 36deg,
+              color-mix(in oklch, #e6e7eb, transparent 65%) 75deg,
+              color-mix(in oklch, grey, transparent 65%) 105deg,
+              color-mix(in oklch, #c5c7d3, transparent 65%) 135deg,
+              color-mix(in oklch, #898c9b, transparent 65%) 170deg,
+              color-mix(in oklch, #d7dee8, transparent 65%),
+              color-mix(in oklch, #787d90, transparent 65%) 230deg,
+              color-mix(in oklch, #c6c9d2, transparent 65%) 280deg,
+              color-mix(in oklch, #9296a3, transparent 65%) 310deg,
+              color-mix(in oklch, #d5d8e1, transparent 65%)),
+            repeating-radial-gradient(transparent,
+              color-mix(in oklch, #6d7285, transparent 100%) 2px,
+              color-mix(in oklch, #6d7285, transparent 35%) 3px,
+              color-mix(in oklch, #6d7285, transparent 35%) 4px,
+              color-mix(in oklch, #6d7285, transparent 100%) 5px) #cecfd6;
+          animation: startDeg 2.5s infinite linear alternate;
+        }
+      }
+    }
+
+    @layer reset {
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    }
+
+    @layer base {
+      body {
+        width: 100vw;
+        min-height: 100vh;
+        font-family: "Exo", "Bungee Shade", cursive, Arial, sans-serif;
+        background-color: #191f2f;
+        color: #fff;
+        display: grid;
+        place-content: center;
+        padding: 1rem;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+
+</body>
+</html>
