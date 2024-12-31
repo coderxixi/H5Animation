@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css雷达扫描</title>
+  <style>
+    @layer reset, base, demo, sonar;
+
+@layer sonar {
+  .rotary {
+    width: 100%;
+    aspect-ratio: 1;
+    background: conic-gradient(#000716 20%, rgb(0 7 22 / 0) 86%, #41f525);
+    overflow: hidden;
+    border-radius: 50%;
+    animation: rotating 5.4s linear infinite;
+    transform-origin: center center;
+    z-index: -1;
+    position: relative;
+  }
+
+  @keyframes rotating {
+    from {
+      rotate:0deg;
+    }
+    to {
+      rotate:360deg;
+    }
+  }
+}
+
+@layer demo {
+  .app {
+    background: linear-gradient(
+      0deg,
+      #000716 0%,
+      rgb(65 245 37 / 0.1) 50%,
+      #000716 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sonar {
+    width: 80%;
+    aspect-ratio: 1;
+    position: relative;
+    max-width: 390px;
+    margin-inline: auto;
+  }
+
+  .sonar__container {
+    width: calc(100% - 60px);
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    translate:-50% -50%;
+    position: absolute;
+    border: 1px solid rgb(65 245 37 / 0.6);
+    border-radius: 50%;
+    
+    &::before,
+    &::after {
+      content: "";
+    left: 50%;
+    top: 50%;
+    translate:-50% -50%;
+    position: absolute;
+    width: 100%;
+    border-radius: 50%;
+      
+    }
+    
+    &::before{
+      
+    aspect-ratio: 1;
+    z-index: 10;
+    background-image: repeating-radial-gradient(
+        transparent 0 calc((100% - 65px) / 6),
+        rgb(65 245 37 / 0.4) calc((100% - 65px) / 6) calc((100% - 65px) / 6 + 2px),
+       transparent calc((100% - 65px) / 6) calc((100% - 65px) / 6 + 6px)
+    );
+    mask:radial-gradient(
+            calc(390px - 4px) circle at center, 
+            #fff 49.99%, 
+            transparent 50.1%
+        )
+  }
+    &::after {
+    background-image: linear-gradient(
+      0deg,
+      rgba(65, 245, 37, 0.1) 25%,
+      #000716 25%,
+      #000716 50%,
+      rgba(65, 245, 37, 0.1) 50%,
+      rgba(65, 245, 37, 0.1) 75%,
+      #000716 75%,
+      #000716 100%
+    );
+    background-size: 4px 4px;
+    }
+}
+  
+
+  .degree {
+    width: 100%;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    translate:-50% -50%;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .degree__line {
+    height: 50%;
+    width: 1px;
+    background: rgb(65 245 37 / 0.4);
+    left: 50%;
+    bottom: 50%;
+    position: absolute;
+    transform-origin: bottom center;
+    translate:-50% 0;
+    rotate:0 0 1 0deg;
+    
+    &::before,
+    &::after {
+      position: absolute;
+      font-size: 1rem;
+      left: 50%;
+      translate: -50% -50%;
+    }
+
+    &::before {
+      content: "360°";
+      color: rgb(65 245 37 / 0.4);
+      top: -34px;
+      rotate:z 0deg;
+    }
+
+    &::after {
+      color: rgb(65 245 37 / 0.6);
+      bottom: -44px;
+      rotate:z 180deg;
+    }
+
+    &:nth-child(1) {
+      translate:-50% 0;
+      rotate:z 0deg;
+      
+      &::before {
+        content: "0" "°";
+        translate:-50% 0; 
+        rotate: z -0deg;
+      }
+    }
+
+    &:nth-child(2) {
+       translate:-50% 0; 
+      rotate: z 30deg;
+      &::before {
+        content: "30" "°";
+        translate:-50% 0; 
+        rotate:z -30deg;
+      }
+    }
+
+    &:nth-child(3) {
+      translate:-50% 0; 
+      rotate:z 60deg;
+      &::before {
+        content: "60" "°";
+        translate: -50% 0; 
+        rotate: z -60deg;
+      }
+    }
+
+    &:nth-child(4) {
+      translate:-50% 0; 
+      rotate: z 90deg;
+      &::before {
+        content: "90" "°";
+        translate:-50% 0; 
+        rotate:z -90deg;
+      }
+    }
+
+    &:nth-child(5) {
+      translate:-50% 0; 
+      rotate: z 120deg;
+      &::before {
+        content: "120" "°";
+        translate:-50% 0;
+        rotate:z -120deg;
+      }
+    }
+
+    &:nth-child(6) {
+      translate:-50% 0; 
+      rotate: z 150deg;
+      &::before {
+        content: "150" "°";
+        translate:-50%  0; 
+        rotate: z -150deg;
+      }
+    }
+
+    &:nth-child(7) {
+      translate:-50% 0; 
+      rotate: z 180deg;
+      &::before {
+        content: "180" "°";
+        translate: -50% 0; 
+        rotate:z -180deg;
+      }
+    }
+
+    &:nth-child(8) {
+      translate:-50% 0; 
+      rotate: z 210deg;
+      &::before {
+        content: "210" "°";
+        translate:-50% 0; 
+        rotate: z -210deg;
+      }
+    }
+    &:nth-child(9) {
+      translate: -50% 0; 
+      rotate: z 240deg;
+      &::before {
+        content: "240" "°";
+        translate: -50% 0; 
+        rotate: z -240deg;
+      }
+    }
+
+    &:nth-child(10) {
+      translate: -50% 0;
+      rotate: z 270deg;
+      &::before {
+        content: "270" "°";
+        translate: -50% 0; 
+        rotate: z -270deg;
+      }
+    }
+
+    &:nth-child(11) {
+      translate: -50% 0; 
+      rotate: z 300deg;
+      &::before {
+        content: "300" "°";
+        translate: -50% 0; 
+        rotate: z -300deg;
+      }
+    }
+
+    &:nth-child(12) {
+      translate: -50% 0;
+      rotate:z 330deg;
+      &::before {
+        content: "330" "°";
+        translate: -50% 0; 
+        rotate: z -330deg;
+      }
+    }
+  }
+
+  .display {
+    width: 100%;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    translate:-50% -50%;
+    position: absolute;
+    z-index: -2;
+    
+    &::before,
+    &::after {
+      content: "";
+      aspect-ratio: 1;
+      width: 2.5%;
+      background: #41f525;
+      position: absolute;
+      border-radius: 50%;
+      box-shadow: 0px 0px 6px 2px #41f525;
+    }
+
+    &::before {
+
+      top: 21%;
+      left: 45%;
+      
+    }
+
+    &::after {
+      top: 14%;
+      left: 78%;
+    }
+  }
+
+  .matrix {
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    background-image: linear-gradient(
+      0deg,
+      rgb(65 245 37 / 0.1) 25%,
+      #000716 25%,
+      #000716 50%,
+      rgb(65 245 37 / 0.1) 50%,
+      rgb(65 245 37 / 0.1) 75%,
+      #000716 75%,
+      #000716 100%
+    );
+    background-size: 4px 4px;
+    border-radius: 50%;
+  }
+}
+
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer base {
+  body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: "Exo", "Bungee Shade", cursive, Arial, sans-serif;
+    background-color: #000716;
+    color: #fff;
+  }
+
+}
+
+  </style>
+</head>
+<body>
+  <div class="app">
+  
+    <div class="sonar">
+  
+      <div class="sonar__container">
+  
+        <div class="degree">
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+          <div class="degree__line"></div>
+        </div>
+  
+        <div class="rotary"></div>
+  
+        <div class="display">
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+</body>
+</html>

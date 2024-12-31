@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css径向渐变案例</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      width: 100vw;
+      height: 100vh;
+      background-color: skyblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .element{
+      width: 40vw;
+      height: 40vw;
+     background-image: repeating-radial-gradient(transparent 0 calc((100% - 65px) / 6), red calc((100% - 65px) / 6) calc((100% - 65px) / 6 + 2px));
+    }
+  </style>
+</head>
+<body>
+       <div class="element"></div>
+</body>
+</html>
