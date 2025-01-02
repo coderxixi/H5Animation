@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>带圆角的形状</title>
+  <style>
+
+     .rhombus{
+     --size: 50vmin;
+    --r: 50px;
+    margin: calc(tan(22.5deg) * var(--r));
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%) margin-box;
+    --_g: / calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(red 70%, #0000 72%);
+    --_s: calc(100% - (1 - tan(22.5deg)) * var(--r));
+    width: var(--size);
+    aspect-ratio: 1;
+    color: #fff;
+    mask: conic-gradient(#000 0 0) no-repeat 50% / var(--_s) var(--_s), top var(--_g) no-repeat space, left var(--_g) space no-repeat;
+    font-size: 40px;
+    background: lime;
+    text-align: center;
+    line-height: 50vmin;
+     }
+  </style>
+</head>
+<body>
+
+
+
+    <div class="rhombus">去娃儿去娃儿去娃儿</div>
+  
+</body>
+</html>

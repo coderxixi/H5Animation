@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创建花朵形状</title>
+  <style>
+ @layer reset, base,forms, dmeo;
+
+@layer demo {
+  .flower {
+    --n: 12; /* 小圆圈的总数 */
+    --r: 30px; /* 小圆的半径 */
+    --c: calc(var(--r) / tan(180deg / var(--n))); /* 大圆的半径 */
+    --w: calc(2 * var(--r) * (1 + 1 / sin(180deg / var(--n)))); /* 元素的宽度 */
+    --bg: #c73226;
+    width: var(--w);
+    place-self: center;
+    display: grid;
+    place-content: center;
+    color: var(--color);
+    font-size: 1.2rem;
+    --color: color-contrast(
+      var(--bg) vs #fff,
+      #aefeaf,
+      #333
+    ); /* 控制文本颜色 */
+    aspect-ratio: 1;
+    --g: circle at 50% 50%, var(--bg) 99%, #0000 101%;
+    --big-circle: radial-gradient(
+      var(--c) var(--g)
+    ) no-repeat;
+    
+    --gsc:/ calc(2 * var(--r)) calc(2 * var(--r)) no-repeat radial-gradient(
+      var(--r) var(--g)
+    );
+    
+    /*
+      x = calc(50% + 50% * cos(360deg * (var(--i) / var(--n))))
+      y = calc(50% + 50% * sin(360deg * (var(--i) / var(--n))))
+    */
+    
+    /* 第 1 个小圆 (i = 1) */
+    --x1: calc(50% + 50% * cos(360deg * (1 / var(--n))));
+    --y1: calc(50% + 50% * sin(360deg * (1 / var(--n))));
+    --pos1: var(--x1) var(--y1);
+    --sc-1: var(--pos1) var(--gsc);
+    
+    /* 第 2 个小圆 (i = 2) */
+    --x2: calc(50% + 50% * cos(360deg * (2 / var(--n))));
+    --y2: calc(50% + 50% * sin(360deg * (2 / var(--n))));
+    --pos2: var(--x2) var(--y2);
+    --sc-2: var(--pos2) var(--gsc);
+    
+    /* 第 3 个小圆 (i = 3) */
+    --x3: calc(50% + 50% * cos(360deg * (3 / var(--n))));
+    --y3: calc(50% + 50% * sin(360deg * (3 / var(--n))));
+    --pos3: var(--x3) var(--y3);
+    --sc-3: var(--pos3) var(--gsc);
+    
+    /* 第 4 个小圆 (i = 4) */
+    --x4: calc(50% + 50% * cos(360deg * (4 / var(--n))));
+    --y4: calc(50% + 50% * sin(360deg * (4 / var(--n))));
+    --pos4: var(--x4) var(--y4);
+    --sc-4: var(--pos4) var(--gsc);
+    
+    /* 第 5 个小圆 (i = 5) */
+    --x5: calc(50% + 50% * cos(360deg * (5 / var(--n))));
+    --y5: calc(50% + 50% * sin(360deg * (5 / var(--n))));
+    --pos5: var(--x5) var(--y5);
+    --sc-5: var(--pos5) var(--gsc);
+    
+    /* 第 6 个小圆 (i = 6) */
+    --x6: calc(50% + 50% * cos(360deg * (6 / var(--n))));
+    --y6: calc(50% + 50% * sin(360deg * (6 / var(--n))));
+    --pos6: var(--x6) var(--y6);
+    --sc-6: var(--pos6) var(--gsc);
+    
+    /* 第 7 个小圆 (i = 7) */
+    --x7: calc(50% + 50% * cos(360deg * (7 / var(--n))));
+    --y7: calc(50% + 50% * sin(360deg * (7 / var(--n))));
+    --pos7: var(--x7) var(--y7);
+    --sc-7: var(--pos7) var(--gsc);
+    
+    /* 第 8 个小圆 (i = 8) */
+    --x8: calc(50% + 50% * cos(360deg * (8 / var(--n))));
+    --y8: calc(50% + 50% * sin(360deg * (8 / var(--n))));
+    --pos8: var(--x8) var(--y8);
+    --sc-8: var(--pos8) var(--gsc);
+    
+    /* 第 9 个小圆 (i = 9) */
+    --x9: calc(50% + 50% * cos(360deg * (9 / var(--n))));
+    --y9: calc(50% + 50% * sin(360deg * (9 / var(--n))));
+    --pos9: var(--x9) var(--y9);
+    --sc-9: var(--pos9) var(--gsc);
+    
+    /* 第 10 个小圆 (i = 10) */
+    --x10: calc(50% + 50% * cos(360deg * (10 / var(--n))));
+    --y10: calc(50% + 50% * sin(360deg * (10 / var(--n))));
+    --pos10: var(--x10) var(--y10);
+    --sc-10: var(--pos10) var(--gsc);
+    
+    /* 第 11 个小圆 (i = 11) */
+    --x11: calc(50% + 50% * cos(360deg * (11 / var(--n))));
+    --y11: calc(50% + 50% * sin(360deg * (11 / var(--n))));
+    --pos11: var(--x11) var(--y11);
+    --sc-11: var(--pos11) var(--gsc);
+    
+    /* 第 12 个小圆 (i = 12) */
+    --x12: calc(50% + 50% * cos(360deg * (12 / var(--n))));
+    --y12: calc(50% + 50% * sin(360deg * (12 / var(--n))));
+    --pos12: var(--x12) var(--y12);
+    --sc-12: var(--pos12) var(--gsc);
+    
+    mask:var(--sc-1), var(--sc-2), var(--sc-3),var(--sc-4),var(--sc-5),var(--sc-6),var(--sc-7),var(--sc-8), var(--sc-9), var(--sc-10), var(--sc-11), var(--sc-12),var(--big-circle);
+    outline: 1px dashed;
+     background-color: skyblue;
+  }
+  
+ 
+  
+   .forms {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    place-self: center;
+   
+  }
+}
+
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer base {
+  body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: "Exo", "Bungee Shade", cursive, Arial, sans-serif;
+    background: hsl(185.03deg 29.72% 30.91%);
+    color-scheme: dark only;
+    color: #fff;
+    display: grid;
+/*     place-content: center; */
+    align-items: start;
+    align-content: start;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 2rem;
+    &::before {
+      --line: hsl(0 0% 95% / 0.15);
+      --size: 60px;
+      content: "";
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      background: linear-gradient(
+            90deg,
+            var(--line) 1px,
+            transparent 1px var(--size)
+          )
+          50% 50% / var(--size) var(--size),
+        linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+          var(--size) var(--size);
+      mask: linear-gradient(-15deg, transparent 30%, white);
+      top: 0;
+      transform-style: flat;
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+
+  <div class="flower"></div>
+
+
+</body>
+</html>
