@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蜂窝布局</title>
+  <style>
+       *{
+          padding: 0;
+          margin: 0;
+       }
+       body{
+        width: 100vw;
+        height: 100vh;
+        background-color: skyblue;
+       }
+       .hex-grid__list{
+         --amount: 5;
+        display: grid;
+          grid-template-columns: repeat(var(--amount), 1fr 2fr) 1fr;
+            gap: 0rem 5rem;
+       }
+ .hex-grid__item {
+    grid-column: 1 / span 3;
+    grid-row: calc(var(--counter) + var(--counter)) / span 2;
+    aspect-ratio: 1;
+    position: relative;
+
+    @media screen and (width >= 1440px) {
+        &:nth-of-type(5n + 1) {
+            grid-column: 1 / span 3;
+        }
+
+        &:nth-of-type(5n + 2) {
+            grid-column: 3 / span 3;
+            grid-row: calc(var(--counter) + var(--counter) - 1) / span 2;
+        }
+
+        &:nth-of-type(5n + 3) {
+            grid-column: 5 / span 3;
+        }
+
+        &:nth-of-type(5n + 4) {
+            grid-column: 7 / span 3;
+            grid-row: calc(var(--counter) + var(--counter) - 1) / span 2;
+        }
+
+        &:nth-of-type(5n + 5) {
+            grid-column: 9 / span 3;
+        }
+
+        &:nth-of-type(n + 6) {
+            --counter: 2;
+        }
+
+        &:nth-of-type(n + 11) {
+            --counter: 3;
+        }
+
+        &:nth-of-type(n + 16) {
+            --counter: 4;
+        }
+
+        &:nth-of-type(n + 21) {
+            --counter: 5;
+        }
+
+        &:nth-of-type(n + 26) {
+            --counter: 6;
+        }
+
+        &:nth-of-type(n + 31) {
+            --counter: 7;
+        }
+
+        &:nth-of-type(n + 36) {
+            --counter: 8;
+        }
+
+        &:nth-of-type(n + 41) {
+            --counter: 9;
+        }
+
+        &:nth-of-type(n + 46) {
+            --counter: 10;
+        }
+
+        &:nth-of-type(n + 51) {
+            --counter: 11;
+        }
+
+        &:nth-of-type(n + 56) {
+            --counter: 12;
+        }
+
+        &:nth-of-type(n + 61) {
+            --counter: 13;
+        }
+
+        &:nth-of-type(n + 66) {
+            --counter: 14;
+        }
+
+        &:nth-of-type(n + 71) {
+            --counter: 15;
+        }
+
+        &:nth-of-type(n + 76) {
+            --counter: 16;
+        }
+
+        &:nth-of-type(n + 81) {
+            --counter: 17;
+        }
+
+        &:nth-of-type(n + 86) {
+            --counter: 18;
+        }
+
+        &:nth-of-type(n + 91) {
+            --counter: 19;
+        }
+
+        &:nth-of-type(n + 96) {
+            --counter: 20;
+        }
+
+        &:nth-of-type(n + 101) {
+            --counter: 21;
+        }
+    }
+}
+.hex-grid__content {
+    --s: 6; /* 正多边形的边数*/
+    --a: 360deg / var(--s); /* 旋转角度，即 θ */
+
+    /* 计算每条边对应的角度: angle + (i * 360deg) / sides, i 从 0 开始索引 */
+    --a1: var(--a) + (0 * 360deg) / var(--s); /* 60deg */
+    --a2: var(--a) + (1 * 360deg) / var(--s); /* 120deg */
+    --a3: var(--a) + (2 * 360deg) / var(--s); /* 180deg */
+    --a4: var(--a) + (3 * 360deg) / var(--s); /* 240deg */
+    --a5: var(--a) + (4 * 360deg) / var(--s); /* 300deg */
+    --a6: var(--a) + (5 * 360deg) / var(--s); /* 360deg */
+
+    /* 计算每个点的坐标
+     * Px = 50% + 50% * cos(angle + (i * 360deg) / sides)
+     * Py = 50% + 50% * sin(angle + (i * 360deg) / sides)
+    */
+    --p1x: calc(50% + 50% * cos(var(--a1)));
+    --p1y: calc(50% + 50% * sin(var(--a1)));
+
+    --p2x: calc(50% + 50% * cos(var(--a2)));
+    --p2y: calc(50% + 50% * sin(var(--a2)));
+
+    --p3x: calc(50% + 50% * cos(var(--a3)));
+    --p3y: calc(50% + 50% * sin(var(--a3)));
+
+    --p4x: calc(50% + 50% * cos(var(--a4)));
+    --p4y: calc(50% + 50% * sin(var(--a4)));
+
+    --p5x: calc(50% + 50% * cos(var(--a5)));
+    --p5y: calc(50% + 50% * sin(var(--a5)));
+
+    --p6x: calc(50% + 50% * cos(var(--a6)));
+    --p6y: calc(50% + 50% * sin(var(--a6)));
+
+    --p1: var(--p1x) var(--p1y); /* P1 点坐标 */
+    --p2: var(--p2x) var(--p2y); /* P2 点坐标 */
+    --p3: var(--p3x) var(--p3y); /* P3 点坐标 */
+    --p4: var(--p4x) var(--p4y); /* P4 点坐标 */
+    --p5: var(--p5x) var(--p5y); /* P5 点坐标 */
+    --p6: var(--p6x) var(--p6y); /* P6 点坐标 */
+
+    /* 定义 polygon() 坐标值 */
+    --shape: var(--p1), var(--p2), var(--p3), var(--p4), var(--p5), var(--p6);
+
+    clip-path: polygon(var(--shape));
+    background-color: #fff;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-content: center;
+    position: absolute;
+    transition: all 0.24s ease-out;    
+    cursor: pointer;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="hex-grid__list">
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=1" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=2" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=3" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=4" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=5" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=6" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=7" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=8" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=9" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=10" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=11" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=12" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=13" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=14" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=15" alt="">
+    </div>
+  </div>
+  <div class="hex-grid__item">
+    <div class="hex-grid__content">
+      <img src="https://picsum.photos/800/800?random=16" alt="">
+    </div>
+  </div>
+ 
+</div>
+
+ 
+</body>
+</html>

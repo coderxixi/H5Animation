@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mask</title>
+  <style>
+    .arc {
+    --b: 40px; /* 控制进度条粗细 */
+    --a: 250deg; /* 进度条进度 */
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    border: 1px solid red;
+    aspect-ratio: 1;
+    background: radial-gradient(200px 200px at 100px 100px, skyblue 0% 20%,#fff 20% ,#fff 80%,green 80%);
+    --_g:/var(--b) var(--b) radial-gradient(50% 50%,#000 97%,#0000 99%) no-repeat;
+    /* mask:radial-gradient(50% 50% at center, white 0% 80%,#0000 81% 100%); */
+      
+    }
+  </style>
+</head>
+<body>
+  <h1>css mask</h1>
+  <div class="arc"></div>
+  
+</body>
+</html>
